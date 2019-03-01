@@ -614,7 +614,7 @@ def synthesize_spectrum(
         wind = [0, *np.diff(sme.wind)]
 
     # Input Model data to C library
-    if passLineList:
+    if passLineList and not reuse_wavelength_grid:
         dll.SetLibraryPath()
         dll.InputLineList(sme.linelist)
     if passAtmosphere:
